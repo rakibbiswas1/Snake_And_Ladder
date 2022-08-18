@@ -8,7 +8,8 @@ public class SnakeLadder {
 		int POSITION = 0;
 
 		System.out.println("Welcome to Snake And Ladder Game");
-		System.out.println("The Player starts roll the die to get a number between 1 to 6, and ladder or a snake keeps doing till the winning spot 100 is achieved.");
+		System.out.println(
+				"The Player starts roll the die to get a number between 1 to 6, and ladder or a snake keeps doing till the winning spot 100 is achieved.");
 
 		System.out.println("Let's begin the game...");
 		System.out.println("Initial position is Square Zero");
@@ -43,14 +44,17 @@ public class SnakeLadder {
 				System.out.println(POSITION);
 			}
 
-		      if (POSITION < 0)
-		      POSITION = 0;
-		      else
-			    	if (POSITION > 100) {
-			    		POSITION -= rollDice;
-			    		System.out.println("But you need to score exactly " + (100-POSITION) +" to win the game.");
-			    	}
+			if (POSITION < 0)
+				POSITION = 0;
+			else if (POSITION > 100) {
+				POSITION -= rollDice;
+				System.out.println("But you need to score exactly " + (100 - POSITION) + " to win the game.");
+			}
 			System.out.println("Current Position : Square " + POSITION);
 		}
+		System.out.println();
+		System.out.println("YOU WIN THE GAME!");
+		System.out.println();
+		System.out.println("Total Number of dice rolls played = " + dice);
 	}
 }
