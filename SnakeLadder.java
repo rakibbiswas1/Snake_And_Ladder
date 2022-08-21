@@ -1,60 +1,107 @@
 
 public class SnakeLadder {
+	
+	public static void main(String[] args) {
+		
 
-	public static void main(String args[]) {
-		int rollDice = 0;
-		int dice = 0;
+		
+		int rollDicePlayer1 = 0;
+		int dicePlayer1 = 0;
+		int POSITIONPlayer1 = 0;
+		int rollDicePlayer2 = 0;
+		int dicePlayer2 = 0;
 		int playOption = 0;
-		int POSITION = 0;
-
+		int POSITIONPlayer2 = 0;
+		
 		System.out.println("Welcome to Snake And Ladder Game");
-		System.out.println(
-				"The Player starts roll the die to get a number between 1 to 6, and ladder or a snake keeps doing till the winning spot 100 is achieved.");
-
-		System.out.println("Let's begin the game...");
-		System.out.println("Initial position is Square Zero");
-		System.out.println("Position : Square " + POSITION);
-
-		for (dice = 1; POSITION < 100; dice++) {
-
-			System.out.println();
-			rollDice = (int) ((Math.random() * 6) + 1);
-			System.out.println("Rolled Dice Value :" + rollDice);
-
+		
+		while (POSITIONPlayer1 < 100 && POSITIONPlayer2 < 100) {
+			
+		    System.out.println();
+			rollDicePlayer1 = (int)((Math.random()*6)+1);
+		    System.out.println("\nPLAYER 1");
+			System.out.println("Rolled Dice Value Player 1 : " + rollDicePlayer1);
 			playOption = (int) Math.floor(Math.random() * 10) % 3;
-			int LadderSnake = (int) (Math.random() * (10 + 1) + 1);
-
-			switch (playOption) {
-			case 0:
-				System.out.println("You encountered a LADDER!");
-				System.out.println("You can move " + LadderSnake + " places ahead.");
-				POSITION += rollDice + LadderSnake;
-				break;
-
-			case 1:
-				System.out.println("You encountered a SNAKE!");
-				System.out.println("You will move " + LadderSnake + " places back.");
-				POSITION += rollDice - LadderSnake;
-				break;
-
-			case 2:
-				System.out.println("You got NO PLAY");
-				System.out.println("You will have to skip your turn.");
-				POSITION += rollDice;
-				System.out.println(POSITION);
+			dicePlayer1++;
+			
+		    switch (playOption) {
+				case 0 :
+					System.out.println("You encountered a LADDER!");
+					System.out.println("You can move " + rollDicePlayer1 +" places ahead Player 1.");
+					POSITIONPlayer1 += rollDicePlayer1;
+					break;
+					
+				case 1 :
+					System.out.println("You encountered a SNAKE!");
+					System.out.println("You will move " + rollDicePlayer1 +" places back Player 1.");
+					POSITIONPlayer1 -= rollDicePlayer1;
+					break;
+					
+				case 2 :
+					System.out.println("You got NO PLAY");
+					System.out.println("You will have to skip your turn Player 1.");
+			
 			}
-
-			if (POSITION < 0)
-				POSITION = 0;
-			else if (POSITION > 100) {
-				POSITION -= rollDice;
-				System.out.println("But you need to score exactly " + (100 - POSITION) + " to win the game.");
+			
+		    if (POSITIONPlayer1 < 0)
+				POSITIONPlayer1 = 0;
+		    else
+		    	if (POSITIONPlayer1 > 100) {
+		    		POSITIONPlayer1 -= rollDicePlayer1;
+		    		System.out.println("But Player 1 you need to score exactly " + (100-POSITIONPlayer1) +" to win the game.");
+		    	}
+		    System.out.println("Current Position Player 1 : Square " + POSITIONPlayer1);
+		    
+		    
+		    System.out.println("\nPLAYER 2");
+			rollDicePlayer2 = (int)((Math.random()*6)+1);
+		    System.out.println("Rolled Dice Value Player 2 : " + rollDicePlayer2);
+		    playOption = (int) Math.floor(Math.random() * 10) % 3;
+		    dicePlayer2++;
+			
+		    switch (playOption) {
+				case 0 :
+					System.out.println("You encountered a LADDER!");
+					System.out.println("You can move " + rollDicePlayer2 +" places ahead Player 2.");
+					POSITIONPlayer2 += rollDicePlayer2;
+					break;
+					
+				case 1 :
+					System.out.println("You encountered a SNAKE!");
+					System.out.println("You will move " + rollDicePlayer2 +" places back Player 2.");
+					POSITIONPlayer2 -= rollDicePlayer2;
+					break;
+					
+				case 2 :
+					System.out.println("You got NO PLAY");
+					System.out.println("You will have to skip your turn Player 2.");
+			
 			}
-			System.out.println("Current Position : Square " + POSITION);
+			
+		    if (POSITIONPlayer2 < 0)
+				POSITIONPlayer2 = 0;
+		    else
+		    	if (POSITIONPlayer2 > 100) {
+		    		POSITIONPlayer2 -= rollDicePlayer2;
+		    		System.out.println("But Player 2 you need to score exactly " + (100-POSITIONPlayer2) +" to win the game.");
+		    	}
+		    System.out.println("Current Position Player 2 : Square " + POSITIONPlayer2);
+			
 		}
+		
 		System.out.println();
-		System.out.println("YOU WIN THE GAME!");
+		if(POSITIONPlayer1 == 100)
+			System.out.println("Player 1 WINS THE GAME!");
+		else
+			System.out.println("Player 2 WINS THE GAME!");
 		System.out.println();
-		System.out.println("Total Number of dice rolls played = " + dice);
+		System.out.println("Total Number of dice rolls PLayer 1 = " + dicePlayer1);
+		System.out.println("Total Number of dice rolls PLayer 2 = " + dicePlayer2);
+		System.out.println("Final Position PLayer 1 = " + POSITIONPlayer1);
+		System.out.println("Final Position PLayer 2 = " + POSITIONPlayer2);
+
 	}
+
+
+	
 }
